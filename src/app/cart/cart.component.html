@@ -1,0 +1,36 @@
+<div class="container">
+<h3>Your Cart</h3>
+<table class="table table-striped">
+    <tr>
+        <th>Remove</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td align="center">
+            <a (click)="remove(item.product.id)">&#10060;</a>
+        </td>
+        <td>{{item.product.id}}</td>
+        <td>{{item.product.name}}</td>
+        <td>
+            <img src="assets/images/{{item.product.photo}}" width="250" height="100">
+        </td>
+        <td>{{item.product.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.product.price * item.quantity}}</td>
+    </tr>
+    <tr>
+        <td colspan="6" align="right">Total:</td>
+        <td>{{total}}</td>
+    </tr>
+</table>
+
+
+<input type="button" value="Check Out" (click)="checkOut()"/>
+
+{{cartInfo}}
+</div>
